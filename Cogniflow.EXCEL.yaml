@@ -195,7 +195,7 @@ script:
 
 
     const logoPlaceholder =
-    "https://app.dev.cogniflow.ai/static/media/img-placeholder.bf7d98c5.svg";
+    "https://app.cogniflow.ai/static/media/img-placeholder.bf7d98c5.svg";
 
 
     const iconSvgExperimentTypeMap = {
@@ -1406,7 +1406,7 @@ style:
       height: 40px;
       width: 110%;
       position: absolute;
-      background-image: url("https://app.dev.cogniflow.ai/img/imgTextPattern.png");
+      background-image: url("https://app.cogniflow.ai/img/imgTextPattern.png");
       transform: rotate(7deg);
     }
 
