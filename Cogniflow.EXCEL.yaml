@@ -83,6 +83,7 @@ script:
 
     const REQUEST_BODY_KEYS = {
       0: "text",
+      1: "text",
       3: "question"
     };
 
