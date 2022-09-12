@@ -62,6 +62,7 @@ const URL_TASK_MAP = {
 // Task based
 const REQUEST_BODY_KEYS = {
   0: 'text',
+  1: 'text',
   3: 'question',
 };
 
@@ -648,9 +649,8 @@ async function runExcelAPI(dom) {
             value.confidence_score,
           ]);
         }
-        const confidenceColumn = columnToPlaceResultMap[insertPlace](
-          responseRange
-        );
+        const confidenceColumn =
+          columnToPlaceResultMap[insertPlace](responseRange);
 
         confidenceColumn.values = confidenceResponse;
       }
