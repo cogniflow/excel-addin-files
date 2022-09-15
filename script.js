@@ -577,6 +577,7 @@ async function runExcelAPI(dom) {
     const range = sheet.getRange(colRange);
 
     range.load('values');
+    range.load('text');
     range.load('address');
 
     await context.sync();
@@ -597,7 +598,8 @@ async function runExcelAPI(dom) {
 
       index: 0,
     };
-    const column = range.values;
+    const column = range.text;
+
     let requests = [];
     let idx = 0;
     let prev = 0;

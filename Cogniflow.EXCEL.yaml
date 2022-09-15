@@ -606,6 +606,7 @@ script:
         const range = sheet.getRange(colRange);
 
         range.load("values");
+        range.load("text");
         range.load("address");
 
         await context.sync();
@@ -626,7 +627,7 @@ script:
 
           index: 0
         };
-        const column = range.values;
+        const column = range.text;
         let requests = [];
         let idx = 0;
         let prev = 0;
