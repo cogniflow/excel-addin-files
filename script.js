@@ -38,6 +38,20 @@ const EXPERIMENT_TASKS = {
   201: 'Audio speech to text',
 };
 
+const EXPERIMENT_TASK_TEXT_CLASSIFICATION = 0;
+const EXPERIMENT_TASK_TEXT_TRANSLATION = 1;
+const EXPERIMENT_TASK_IMAGE_CLASSIFICATION = 100;
+const EXPERIMENT_TASK_AUDIO_CLASSIFICATION = 200;
+const EXPERIMENT_TASK_AUDIO_SPEECH2TEXT = 201;
+
+const TASKS_ALLOWED = [
+  EXPERIMENT_TASK_TEXT_CLASSIFICATION,
+  EXPERIMENT_TASK_TEXT_TRANSLATION,
+  EXPERIMENT_TASK_IMAGE_CLASSIFICATION,
+  EXPERIMENT_TASK_AUDIO_CLASSIFICATION,
+  EXPERIMENT_TASK_AUDIO_SPEECH2TEXT,
+];
+
 const EXPERIMENT_TYPES = {
   0: 'Text',
   1: 'Image',
@@ -844,7 +858,9 @@ function setUpListeners(dom, router, pages, http) {
 
     http.get(`experiment/?${EXPERIMENT.query}`).then((response) => {
       EXPERIMENT.list = response.filter(
-        (experiment) => experiment.status === STATUS_FINISHED
+        (experiment) =>
+          experiment.status === STATUS_FINISHED &&
+          TASKS_ALLOWED.includes(experiment.task)
       );
       appendExperimentListInDom(EXPERIMENT.list);
     });
